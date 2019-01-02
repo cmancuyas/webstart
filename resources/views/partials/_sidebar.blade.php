@@ -25,14 +25,14 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/home" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt blue"></i>
             <p>Dashboard</p>
             </a>
         </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-cogs red"></i>
+            <i class="nav-icon fas fa-cogs indigo"></i>
               <p>
                 Management
                 <i class="right fa fa-angle-left"></i>
@@ -40,19 +40,55 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-users orange"></i>
+                <a href="/users" class="nav-link">
+                  <i class="nav-icon fas fa-users purple"></i>
                   <p>User Management</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-building green"></i>
+                <a href="/departments" class="nav-link">
+                  <i class="nav-icon fas fa-building pink"></i>
                   <p>Department</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="/roles" class="nav-link">
+                    <i class="nav-icon fas fa-user-cog red"></i>
+                    <p>Roles</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/statuses" class="nav-link">
+                    <i class="nav-icon fas fa-bell orange"></i>
+                    <p>Statuses</p>
+                </a>
+              </li>
+               <li class="nav-item">
+                <a href="/companies" class="nav-link">
+                    <i class="nav-icon fas fa-building yellow"></i>
+                    <p>Companies</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/customers" class="nav-link">
+                    <i class="nav-icon fas fa-user-friends green"></i>
+                    <p>Customers</p>
+                </a>
+                </li>
+                {{-- <li class="nav-item">
+                    <a href="/employees" class="nav-link">
+                        <i class="nav-icon fas fa-user-tie teal"></i>
+                        <p>Employees</p>
+                    </a>
+                </li> --}}
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="/joborders" class="nav-link">
+            <i class="nav-icon fas fa-file-contract teal"></i>
+            <p>Job Request</p>
+            </a>
+         </li>
 
         </ul>
       </nav>

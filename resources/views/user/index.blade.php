@@ -1,46 +1,71 @@
 @extends('master')
 
-@section('title', 'Users Page')
+@section('title', 'Users Main Page')
 
 @section('main-content')
-
-<div class="card">
-    <div class="card-header">
-      <h3 class="card-title">Users Table</h3>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body">
-      <table class="table table-bordered">
-
+<div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h4><strong>Users/Employees Page</strong></h4>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-success float-right" data-toggle="modal" data-target="#addModal"><i class="fas fa-plus"></i>Add user</button>
+            </div>
+        </div>
+        <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="width: 10px">#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Type</th>
+                <th>Department</th>
+                <th>Action</th>
+            </tr>
+    </thead>
         <tbody>
-          <tr>
-            <th style="width: 10px">#</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Action</th>
-          </tr>
+                @foreach ($users as $user)
+                <tr>
 
-          <tr>
-              @foreach ($users as $user)
-              <td>{{$user->id}}</td>
-              <td>{{$user->name}}</td>
-              <td>{{$user->email}}</td>
-              <td>
-                  <a href="" class="btn btn-info">Show</a>
-                  <a href="" class="btn btn-warning">Edit</a>
-                  <button class="btn btn-danger">Delete</button>
-              </td>
-              @endforeach
+                        <td>{{$user->id}}</td>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->email}}</td>
 
-          </tr>
+                        @foreach ($user->roles as $role)
+                        <td>{{$role->name}}</td>
+                        @endforeach
+                        @foreach ($user->departments as $department)
+                        <td>{{$department->name}}</td>
+                        @endforeach
+                        <td>
+                            <div class="btn-group">
+                                <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#modal-update-{{ $user->id }}">Edit</a>
+                                <a class="btn btn-danger" role="button" data-toggle="modal" data-target="#modal-delete-{{ $user->id }}">Delete</a>
+                            </div>
+                        </td>
 
-       </tbody>
-      </table>
-    </div>
-    <!-- /.card-body -->
-    <div class="card-footer clearfix">
-        {{ $users->links() }}
-    </div>
-  </div>
+
+                </tr>
+                @endforeach
+        </tbody>
+    </table>
+</div>
+
+<nav>
+    <ul class="pagination justify-content-end">
+        {{$users->links('vendor.pagination.bootstrap-4')}}
+    </ul>
+</nav>
+
+{{-- Add user Modal --}}
+@include('user.addModal')
+
+@forelse($users as $user)
+    @include('user.editModal')
+    {{-- Delete user Modal --}}
+    @include('user.deleteModal')
+@empty
+
+@endforelse
 
 @endsection

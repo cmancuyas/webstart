@@ -3,7 +3,7 @@
 
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-    @include('partials.messages')
+
     @include('partials._navbar')
     @include('partials._sidebar')
     @include('partials._sidebarControl')
@@ -21,7 +21,7 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-
+        @include('partials.messages')
         @yield('main-content')
 
 
@@ -30,14 +30,13 @@
   </div>
   <!-- /.content-wrapper -->
 
+  @include('partials._footer')
+</div>
+<!-- ./wrapper -->
 
-
-
-
-<!-- REQUIRED SCRIPTS -->
+<script src="{{ asset('js/app.js')}}"></script>
 
 @yield('js')
-<script src="{{ asset('js/app.js')}}"></script>
 
 </body>
 </html>
